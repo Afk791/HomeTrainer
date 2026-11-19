@@ -1,0 +1,1434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".SecondActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="ТРЕНИРОВКИ ДЛЯ ДОМА"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Цель на неделю"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/trainCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/3"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray"
+                    android:background="@drawable/counter_background"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/day1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/day2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/day3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/day4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/day5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/day6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/day7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="7"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Заголовок "Над чем работать" -->
+    <TextView
+        android:id="@+id/nadChem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Над чем работать"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <HorizontalScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginTop="8dp">
+
+        <RadioGroup
+            android:id="@+id/workoutRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/buttonPress"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Пресс"
+                android:button="@null"
+                android:background="@drawable/button_background_selector"
+                android:textColor="@color/button_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:layout_marginEnd="12dp"/>
+
+            <RadioButton
+                android:id="@+id/buttonHands"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Руки"
+                android:button="@null"
+                android:background="@drawable/button_background_selector"
+                android:textColor="@color/button_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+            <RadioButton
+                android:id="@+id/buttonBreast"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Грудь"
+                android:button="@null"
+                android:background="@drawable/button_background_selector"
+                android:textColor="@color/button_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+            <RadioButton
+                android:id="@+id/buttonLegs"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Ноги"
+                android:button="@null"
+                android:background="@drawable/button_background_selector"
+                android:textColor="@color/button_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"/>
+
+            <RadioButton
+                android:id="@+id/buttonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Спина"
+                android:button="@null"
+                android:background="@drawable/button_background_selector"
+                android:textColor="@color/button_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:layout_marginStart="12dp"/>
+
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/scrollButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginTop="12dp">
+        <LinearLayout
+            android:id="@+id/allWorkouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/pressWorkouts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="30dp">
+                <!-- 1 -->
+                <LinearLayout
+                    android:id="@+id/linearPress_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/press1"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/pressBeginner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Пресс Новичок"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:id="@+id/workoutBeginer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15 мин. • 16 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 1 -->
+
+                <!-- 2  -->
+                <LinearLayout
+                    android:id="@+id/linearPress_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/press2"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Пресс Продолжающий"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--  2  -->
+
+                <!--  3  -->
+                <LinearLayout
+                    android:id="@+id/linearPress_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/press3"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Пресс Продвинутый"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/handsWorkouts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="30dp">
+                <!-- 1 -->
+                <LinearLayout
+                    android:id="@+id/linearHands_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/hands1"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/handsBeginner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Руки Новичок"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15 мин. • 16 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 1 -->
+
+                <!-- 2  -->
+                <LinearLayout
+                    android:id="@+id/linearHands_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/hands2"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Руки Продолжающий"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--  2  -->
+
+                <!--  3  -->
+                <LinearLayout
+                    android:id="@+id/linearHands_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/hands2"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Руки Продвинутый"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/breatsWorkouts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="30dp">
+                <!-- 1 -->
+                <LinearLayout
+                    android:id="@+id/linearBreats_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/breast1"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/breatsBeginner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Грудь Новичок"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15 мин. • 16 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 1 -->
+
+                <!-- 2  -->
+                <LinearLayout
+                    android:id="@+id/linearBreats_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/breast2"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Грудь Продолжающий"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--  2  -->
+
+                <!--  3  -->
+                <LinearLayout
+                    android:id="@+id/linearBreats_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/breast3"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Грудь Продвинутый"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/legsWorkouts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="30dp">
+                <!-- 1 -->
+                <LinearLayout
+                    android:id="@+id/linearLegs_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/legs1"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/legsBeginner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ноги Новичок"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15 мин. • 16 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 1 -->
+
+                <!-- 2  -->
+                <LinearLayout
+                    android:id="@+id/linearLegs_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/legs2"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ноги Продолжающий"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--  2  -->
+
+                <!--  3  -->
+                <LinearLayout
+                    android:id="@+id/linearLegs_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/legs3"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ноги Продвинутый"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/backWorkouts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="30dp">
+                <!-- 1 -->
+                <LinearLayout
+                    android:id="@+id/linearBack_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/back1"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:id="@+id/backBeginner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Спина Новичок"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15 мин. • 16 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 1 -->
+
+                <!-- 2  -->
+                <LinearLayout
+                    android:id="@+id/linearBack_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/back2"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Спина Продолжающий"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--  2  -->
+
+                <!--  3  -->
+                <LinearLayout
+                    android:id="@+id/linearBack_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:clipChildren="true">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/back3"
+                            android:contentDescription="Фото тренировки"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Спина Продвинутый"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27 мин. • 21 Упражнения"
+                            android:textSize="14sp"
+                            android:textColor="@color/background"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@mipmap/ic_lighting_round"
+                                android:contentDescription="Сложность"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <HorizontalScrollView
+        android:id="@+id/scrollFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBeginner"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Новичок"
+                app:icon="@drawable/dice1"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                app:iconPadding="6dp"
+                app:iconTint="@color/black"
+                app:backgroundTint="#E0E0E0"
+                app:strokeColor="#BDBDBD"
+                app:strokeWidth="1dp"
+                app:cornerRadius="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIntermediate"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Продолжающий"
+                app:icon="@drawable/dice2"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                app:iconPadding="6dp"
+                app:iconTint="@color/black"
+                app:backgroundTint="#E0E0E0"
+                app:strokeColor="#BDBDBD"
+                app:strokeWidth="1dp"
+                app:cornerRadius="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdvanced"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Продвинутый"
+                app:icon="@drawable/dice3"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                app:iconPadding="6dp"
+                app:iconTint="@color/black"
+                app:backgroundTint="#E0E0E0"
+                app:strokeColor="#BDBDBD"
+                app:strokeWidth="1dp"
+                app:cornerRadius="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>
